@@ -1,0 +1,111 @@
+<!-- Copyright (c) 2014-2017 Leidos. -->
+<!-- License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause -->
+<!-- Developed under contract #FA8750-14-C-0241 -->
+<div id="wrapper">
+<div ng-controller="SearchController">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <h3>Language Filter</h3>
+          <div class="btn-group">
+            <button id="javaFilter-btn" ng-model="javaFilter" ng-class="{ 'active' : javaFilter }" class="btn btn-default" type="button" ng-Click="applyJavaFilter()"><i class="glyphicon glyphicon-filter">Java</i></button>
+            <button id="cFilter-btn" ng-model="cFilter"ng-class="{ 'active' : cFilter }" class="btn btn-default" type=" button" ng-Click="applyCFilter()"><i class="glyphicon glyphicon-filter">C</i></button>
+            <button id="cppFilter-btn" ng-model="cppFilter"ng-class="{ 'active' : cppFilter }" class="btn btn-default" type=" button" ng-Click="applyCppFilter()"><i class="glyphicon glyphicon-filter">C++</i></button>
+            <br/>
+          </div>
+          <div class="btn-group">
+            <button id="filterNone-btn" ng-class="{ 'active' : noneFilter }" class="btn btn-default" type="button" ng-Click="filterNone()"><i class="glyphicon glyphicon-remove">Clear</i></button>
+          </div>
+        <h3>Sorting</h3>
+        <div class="btn-group">
+          <button id="sortDateAsc-btn" ng-class="{ 'active' : dateSortAsc }" class="btn btn-default" type="button" ng-Click="sortDateAsc()"><i class="glyphicon glyphicon-sort-by-alphabet">Date</i></button>
+          <button id="sortDateDsc-btn" ng-class="{ 'active' : dateSortDsc }" class="btn btn-default" type="button" ng-Click="sortDateDsc()"><i class="glyphicon glyphicon-sort-by-alphabet-alt">Date</i></button>
+        </div>
+        <br/>
+        <div class="btn-group">
+          <button id="sortSizeAsc-btn" ng-class="{ 'active' : sizeSortAsc }" class="btn btn-default" type="button" ng-Click="sortSizeAsc()"><i class="glyphicon glyphicon-sort-by-attributes">Size</i></button>
+          <button id="sortSizeDsc-btn" ng-class="{ 'active' : sizeSortDsc }" class="btn btn-default" type="button" ng-Click="sortSizeDsc()"><i class="glyphicon glyphicon-sort-by-attributes-alt">Size</i></button>
+        </div>
+        <br/>
+        <div class="btn-group">
+          <button id="sortNone-btn" ng-class="{ 'active' : noneSort }" class="btn btn-default" type="button" ng-Click="sortNone()"><i class="glyphicon glyphicon-remove">Clear</i></button>
+        </div>
+        <h3>Results</h3>
+        <div class="btn-group">
+          <a target="_self" ng-href="{{download_link}}">
+            <button id="downloadResults-btn" ng-class="{ 'active' : downloadResults }" class="btn btn-default" type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt">Download JSON</i></button>
+          </a>
+        </div>
+      </ul>
+    </div>
+    <!--
+    <input type="text" ng-model="term">
+    <button ng-click="findValue(term)">Search</button><br> -->
+    <div id="navbar" class="collapse navbar-collapse">
+      <div class="row">
+        <div class="col-sm-3 col-md-3 pull-left">
+			    <form class="navbar-form" role="search" ng-Submit="findValue(term)" >
+			      <div class="input-group">
+              <input type="text" ng-model="term" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+              <div class="input-group-btn">
+                <button id="search-btn" class="btn btn-default" type="button" ng-Click="findValue(term)"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+			      </div>
+			    </form>
+          <div><span class="badge">Total Results: {{total_results}}</span></div>
+        </div>
+        <div class="col-sm-9 col-md-9">
+            <ul class="pager">
+                <li><button class="btn btn-default" type="button" ng-click="prevPage()">Previous</button></li>
+                <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next</button></li>
+            </ul>
+        </div>
+      </div> <!-- row -->
+    </div>
+
+    <hr>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+      <!--
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li>Language Filter</li>
+            <li><label class="checkbox-inline"><input ng-model="javaFilter" type="checkbox" value="">Java</label></li>
+            <li><label class="checkbox-inline"><input ng-model="cFilter" type="checkbox" value="">C/C++</label></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li>Sorting</li>
+            <li><label class="checkbox-inline"><input ng-model="javaFilter" type="checkbox" value="">Java</label></li>
+            <li><label class="checkbox-inline"><input ng-model="cFilter" type="checkbox" value="">C/C++</label></li>
+          </ul>
+        </div>
+      -->
+        <div class="span12 main">
+          <div ng-repeat="entry in entries">
+            <div class="panel panel-default">
+             <div class="panel-heading">
+              <a href="{{entry._source.info.html_url}}"><h2>{{entry._source.name}}</h2></a>
+            </div>
+            <div class="panel-body">
+              <b>Description:</b> {{entry._source.info.description}} </br>
+              <b>Languages:</b> {{getLanguageKeys(entry._source.languages)}} </br>
+              <b>Created On:</b> {{entry._source.info.created_at}} </br>
+              <b>Size:</b> {{entry._source.info.size}} </br>
+            </div>
+          </div> <!-- panel -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+   <nav>
+     <ul class="pager">
+       <li><button class="btn btn-default" type="button" ng-click="prevPage()">Previous</button></li>
+       <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next</button></li>
+     </ul>
+   </nav>
+ </div>
+</div>
+</div>

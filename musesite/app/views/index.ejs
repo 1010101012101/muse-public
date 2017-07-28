@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- Copyright (c) 2014-2017 Leidos. -->
+<!-- License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause -->
+<!-- Developed under contract #FA8750-14-C-0241 -->
+<html xmlns:ng="http://angularjs.org">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Use the 'title' property to render a page title  -->
+	<title><%= title %></title>
+
+	<!-- Custom styles for this template
+	<link href="/css/starter-template.css" rel="stylesheet">
+	-->
+	<link href="/css/simple-sidebar.css" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<!-- Bootstrap core CSS -->
+	<link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+<i class=" icon-white"></i>
+<!--<a href="#!/" class="navbar-left"><img style="max-width:100pix;margin-top: -5px " src="/img/favicon.ico"></a>-->
+				<a class="navbar-brand" rel="home" href="#!/" title="MUSE"><img style="height:50px;width:50px;float:left;margin-top: -17px " src="/img/jira-logo-scaled.png"><b>MUSE</b> <i class="glyphicon glyphicon-home"></i></a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#!/search"><b>Search</b> <i class="glyphicon glyphicon-search"></i></a></li>
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+     <b>Benchmark-Repos</b><span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+       <li role="presentation">
+            <a target="_self" ng-href="http://corpus.museprogram.org/data/tar/benchmark-bresenham-c-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Bresenham C++
+          </a>
+       </li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://corpus.museprogram.org/data/tar/benchmark-bresenham-java-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Bresenham Java
+          </a>
+       </li>
+<li class="divider" role="presentation"><hr></li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-duplicate-json-c-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Duplicate-JSON C++
+          </a>
+       </li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-duplicate-json-java-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Duplicate-JSON Java
+          </a>
+       </li>
+<li class="divider" role="presentation"><hr></li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-lcs-c-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> LCS C++
+          </a>
+       </li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-lcs-java-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> LCS Java
+          </a>
+       </li>
+<li class="divider" role="presentation"><hr></li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-sort-c-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Sort C++
+          </a>
+       </li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-sort-java-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Sort Java
+          </a>
+       </li>
+<li class="divider" role="presentation"><hr></li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-matrix-c-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Matrix C++
+          </a>
+       </li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-matrix-java-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Matrix Java</a>
+       </li>
+<li class="divider" role="presentation"><hr></li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-graph-c-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Graph C++
+          </a>
+       </li>
+<!--       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-sri-c-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> SRI C++
+          </a>
+       </li>
+-->
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-aes-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> AES
+          </a>
+       </li>
+       <li role="presentation">
+            <a target="_self" ng-href="http://38.100.20.211/data/tar/benchmark-off-by-one-aug-2015.tar.gz"><i class="glyphicon glyphicon-download-alt"></i> Off-by-one
+          </a>
+       </li>
+       </li>
+    </ul>
+  </li>
+					<li><a href="#!/help"><b>Help</b> <i class="glyphicon glyphicon-question-sign"></i></a></li>
+				</ul>
+    				<ul class="nav navbar-nav navbar-right">
+				      <li><img style="margin-top: 10px;margin-right: 20px " src="/img/leidos_icon2.png"></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+ 	<!-- Sidebar -->
+<!--
+	 <div id="sidebar-wrapper">
+	 	<ul class="sidebar-nav">
+	 		<li class="sidebar-brand">
+	 			<a href="#!/">
+	 				MUSE Program
+	 			</a>
+	 		</li>
+	 		<li>
+	 			<a href="#!/">Home</a>
+	 		</li>
+	 		<li>
+	 			<a href="#!/search">Search</a>
+	 		</li>
+	 	</ul>
+	 </div>
+-->
+	<!-- If a user is not authenticated, display the authentication links
+	<% if (user) { %>
+		<a href="/signout">Sign out</a>
+	<% } else { %>
+		<a href="/signup">Signup</a>
+		<a href="/signin">Signin</a>
+	<% } %>
+-->
+
+	<div id="page-content-wrapper">
+
+		<!-- Render AngularJS views  -->
+		<div class="container-fluid">
+			<div class="row">
+				<div>
+					<div id="main">
+						<br/>
+						<div ng-view>
+						</div> <!-- ng-view -->
+					</div>  <!-- ng-view container -->
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Render the user object -->
+	<script type="text/javascript">
+		window.user = <%- user || 'null' %>;
+	</script>
+
+	<!-- Load local libraries -->
+	<script type="text/javascript" src="/lib/angular/angular.js"></script>
+	<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="/lib/angular-elastic-builder/dist/angular-elastic-builder.js"></script>
+	<script type="text/javascript" src="/lib/angular-recursion/angular-recursion.js"></script>
+	<script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script type="text/javascript" src="/lib/file-saver/FileSaver.js"></script>
+
+	<!-- Load the users module -->
+	<script type="text/javascript" src="/users/users.client.module.js"></script>
+	<script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+
+	<!-- Load the metrics client -->
+	<script src='/metrics/js/Chart.js'></script>
+	<script type="text/javascript" src="/metrics/metrics.app.js"></script>
+	<script type="text/javascript" src="/metrics/controllers/metrics.client.controller.js"></script>
+	<script type="text/javascript" src="/metrics/config/metrics.client.routes.js"></script>
+	<script type="text/javascript" src="/data/metrics.json"></script>
+
+	<!-- Load the search client -->
+	<script type="text/javascript" src="/search/search.app.js"></script>
+	<script type="text/javascript" src="/search/controllers/search.controller.js"></script>
+	<script type="text/javascript" src="/search/config/search.client.routes.js"></script>
+	<script type="text/javascript" src="/search/factories/search.factory.js"></script>
+
+	<!-- Bootstrap AngularJS application -->
+	<script type="text/javascript" src="/core/application.js"></script>
+	</body>
+</html>

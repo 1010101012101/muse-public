@@ -1,0 +1,333 @@
+<!-- Copyright (c) 2014-2017 Leidos. -->
+<!-- License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause -->
+<!-- Developed under contract #FA8750-14-C-0241 -->
+<div id="wrapper">
+<div ng-controller="SearchController">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+
+        <div class="row">
+          <div class="col-sm-6 col-md-6 pull-left">
+             <div class="sidebar-brand"><h2>Search Corpus</h2></div>
+	  </div>
+          <div class="col-sm-1 col-md-1 ">
+             <div class="pager">
+               <button id="help-btn" class="btn btn-info" type="button" data-toggle="tooltip" title="View Query Text..." ng-Click="alertSearch()"><i class="glyphicon glyphicon-info-sign"></i></button>
+             </div>
+          </div>
+
+          <div class="col-sm-4 col-md-4 pull-left" >
+             <div class="pager">
+             <div class="dropdown"> <!-- dropdown-append-to-body">-->
+   		   <button type="button" class="btn btn-primary dropdown-toggle" id="menu1" data-toggle="dropdown"><i class="glyphicon glyphicon-star"></i> Saved Searches
+      		       <span class="caret"></span>
+   		   </button>
+   		   <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+		   <li class="dropdown-header"><b>Leidos Benchmarks PH2</b></li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedMavlink()"><i class="glyphicon glyphicon-search"></i> Mavlink</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedAileron()"><i class="glyphicon glyphicon-search"></i> Aileron</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedWaypoint()"><i class="glyphicon glyphicon-search"></i> Waypoint</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedHttp()"><i class="glyphicon glyphicon-search"></i> Http Heap</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadFace()"><i class="glyphicon glyphicon-search"></i> Face Detection</button>
+      		   </li>
+
+<!--      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedLCS2()"><i class="glyphicon glyphicon-search"></i> Longest Common</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedJSON()"><i class="glyphicon glyphicon-search"></i> Duplicate JSON</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedBresen()"><i class="glyphicon glyphicon-search"></i> Bresenham</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedMatrix()"><i class="glyphicon glyphicon-search"></i> Matrix Multiplication</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedGraph()"><i class="glyphicon glyphicon-search"></i> Graph Alogrithms</button>
+      		   </li>
+-->
+		   <hr>
+<!--		   <li class="divider" role="presentation"><hr></li>-->
+		   <li class="dropdown-header"><b>Performer Benchmarks</b></li>
+<!--      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedDraper2()"><i class="glyphicon glyphicon-search"></i> off-by-one</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedAndroid2()"><i class="glyphicon glyphicon-search"></i> android</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedAES()"><i class="glyphicon glyphicon-search"></i> AES</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedTree()"><i class="glyphicon glyphicon-search"></i> Tree Manipulation</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedGUI()"><i class="glyphicon glyphicon-search"></i> Java GUIs</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedImageSyn()"><i class="glyphicon glyphicon-search"></i> Image Synthesis</button>
+      		   </li>
+</ul></li>
+-->
+		   <hr>
+<!--		   <li class="divider" role="presentation"><hr></li>-->
+<!--		   <li class="dropdown-header"><b>Hackathon Repos</b></li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedLCA()"><i class="glyphicon glyphicon-search"></i> LCAncestor</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedListDirectory()"><i class="glyphicon glyphicon-search"></i> List Directory</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedPrimeSieve()"><i class="glyphicon glyphicon-search"></i> Prime Number Sieve</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedSuffixTree()"><i class="glyphicon glyphicon-search"></i> Construct Suffix Tree</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedMMInverse()"><i class="glyphicon glyphicon-search"></i> Multiplicative Inverse</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedFloodFill()"><i class="glyphicon glyphicon-search"></i> Flood Fill</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedBresenhamCircle()"><i class="glyphicon glyphicon-search"></i> Bresenham Circle</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedPointerCorrupt()"><i class="glyphicon glyphicon-search"></i> Pointer Corruption</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedUAF()"><i class="glyphicon glyphicon-search"></i> Use After Free</button>
+      		   </li>
+-->
+		   <li class="dropdown-header"><b>Specialized Domains</b></li>
+<!--      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadGPS()"><i class="glyphicon glyphicon-search"></i> GPS Spoof</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSensor()"><i class="glyphicon glyphicon-search"></i> Sensor Spoof</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadAvionics()"><i class="glyphicon glyphicon-search"></i> Avionics</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadARM()"><i class="glyphicon glyphicon-search"></i> ARM Cortex</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadRTOS()"><i class="glyphicon glyphicon-search"></i> RTOS</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadROS()"><i class="glyphicon glyphicon-search"></i> ROS</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadJoystick()"><i class="glyphicon glyphicon-search"></i> Joystick</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadComms()"><i class="glyphicon glyphicon-search"></i> Communication</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadNavigation()"><i class="glyphicon glyphicon-search"></i> Navigation</button>
+      		   </li>
+-->
+<hr>
+
+
+		   <li class="dropdown-header"><b>Generalized Domains</b></li>
+<!--
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadString()"><i class="glyphicon glyphicon-search"></i> String</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadParse()"><i class="glyphicon glyphicon-search"></i> Parse</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadIO()"><i class="glyphicon glyphicon-search"></i> Input Output</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadRun()"><i class="glyphicon glyphicon-search"></i> Run-time</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadDS()"><i class="glyphicon glyphicon-search"></i> Data Structure</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadCompile()"><i class="glyphicon glyphicon-search"></i> Compile</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadGraph()"><i class="glyphicon glyphicon-search"></i> Graph</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadOS()"><i class="glyphicon glyphicon-search"></i> Operating System</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadHyper()"><i class="glyphicon glyphicon-search"></i> Hypervisor</button>
+      		   </li>
+-->
+   		   </ul>
+	     </div>
+	  </div>  </div>
+        </div>
+
+       <div class="row">
+         <div class="col-sm-5 col-md-5 pull-left" >
+           <h3>Project Filters</h3>
+         </div>
+         <div class="col-sm-3 col-md-3 pull-right">
+           <div class="pager">
+               <button id="help-btn" class="btn btn-default" type="button" data-toggle="tooltip" title="Textual Query..." ng-Click="textPage()"><i class="glyphicon glyphicon-text-size"></i></button>
+           </div>
+         </div>
+        </div>
+        <div class="span9" data-elastic-builder="elasticBuilderDataAll"></div>
+
+   <!-- input type="text" ng-model="term"> -->
+
+        <div class="row">
+          <div class="col-sm-4 col-md-4 pull-left">
+             <div class="sidebar-brand"><h3>Sort Filters</h3></div>
+          </div>
+          <div class="col-sm-1 col-md-1 ">
+             <div class="pager">
+               <button id="help-btn" class="btn btn-info" type="button" data-toggle="tooltip" title="View Query Text..." ng-Click="alertSortHelp()"><i class="glyphicon glyphicon-info-sign"></i></button>
+             </div>
+          </div>
+        </div>
+
+        <form class="form-inline" role="form">
+          <label for="sort"> Sort Results by:</label>
+          <select id="sort" ng-model="sort" class="form-control">
+            <option value="project.total_size">project size</option>
+            <option value="project.created_at">project date</option>
+            <option selected value="project.quality_leidos">project quality</option>
+          </select>
+          <select id="sort" ng-model="order" class="form-control">
+            <option selected value="desc" >descending</option>
+            <option value="asc">ascending</option>
+          </select>
+        </form>
+       <!-- <button class="btn btn-default" type="button" ng-click="doQuery()">Search</button>-->
+        <div class="pager">
+        <button id="search-btn" class="btn btnSearch" type="button" ng-Click="findQueryAdv()"><i class="glyphicon glyphicon-search"> Search</i></button>
+        </div>
+      </ul>
+    </div>
+
+     <!--     <div><span class="badge">Total Results: {{total_results}}</span></div> -->
+    <div id="navbar" class="collapse navbar-collapse">
+      <div class="row">
+
+        <div class="col-sm-0col-md-0 pull-left">
+          <h2>Results:</h2>
+        </div>
+        <div id="veil" ng-show="downloading"></div>
+        <div id="feedLoading" ng-show="downloading">Downloading JSON...</div>
+        <div id="veil" ng-show="loading"></div>
+        <div id="feedLoading" ng-show="loading">Loading...</div>
+        <div class="col-sm-4 col-md-4 pull-left">
+          <div class="pager">
+            <a target="_self" ng-href="{{download_link}}">
+            <div id="veil2" ng-show="loading"></div>
+            <button id="downloadResults-btn" ng-class="{ 'active' : downloadResults }" class="btn btn-default" type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt"></i> Download JSON</button>
+          </a>
+          <label class="checkbox-inline"><input type="checkbox" data-toggle="tooltip" title="Include full project queries in results" ng-model="full_download" value="">full</label>
+
+<!--            <button id="downloadResults-btn" ng-click="downloadResults()" class="btn btn-primary start" type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt"></i> Download JSON</button>-->
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <ul class="pager">
+            <div id="veil2" ng-show="loading"></div>
+                <!--<li><button class="btn btn-default" type="button" ng-click="prevPage()">Previous</button></li>
+                <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next</button></li>-->
+                <li><button class="btn btn-default" type="button" ng-click="prevPage()"><i class="glyphicon glyphicon-arrow-left"></i> Previous</button></li>
+                <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next <i class="glyphicon glyphicon-arrow-right"></i></button></li>
+            </ul>
+        </div>
+      </div> <!-- row -->
+    </div>
+
+    <div><span class="badge span9">Total Results: {{total_results}}</span> <span class="badge span9">Total Size: {{size_str}}</span> <span class="badge span9">Num Files: {{files_str}}</span> <span class="badge span9"> SLOC: {{sloc_str}}</span></div>
+    <hr>
+    <!--
+    <input type="text" ng-model="term">
+    <button ng-click="findValue(term)">Search</button><br> -->
+<!--    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="row-fluid">
+          <div class="span12">
+            <ul class="pager">
+                <li><button class="btn btn-default" type="button" ng-click="prevPage()">Previous</button></li>
+                <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+ 	  <div class="badge span3">Total Projects: {{total_results}}</div>
+
+          <div class="btn-group span12">
+           <a target="_self" ng-href="{{download_link}}">
+             <button id="downloadResults-btn" ng-class="{ 'active' : downloadResults }" class="btn btn-default" type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt">Download JSON</i></button>
+
+           </a><div class="spinner" ng-show="loading"></div>
+          </div>
+
+      </div>
+      <br>-->
+      <div class="row-fluid">
+        <div class="span12 main">
+          <div ng-repeat="entry in entries">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <a href="{{entry._source.html_url}}"><h2>{{entry._source.full_name}}</h2></a>
+              </div>
+              <div class="panel-body">
+                <b>Quality Score:</b> {{entry._source.quality_leidos}} </br>
+                <b>Description:</b> {{entry._source.description}} </br>
+                <b>Topics:</b> {{entry._source.topic}} </br>
+                <b>Site:</b> {{entry._source.site}} </br>
+                <b>Languages:</b> {{entry._source.language}} </br>
+                <b>Created On:</b> {{entry._source.created_at}} </br>
+                <b>Size:</b> {{entry._source.total_size}}  (bytes) </br>
+                <b>Path:</b> {{entry._source.path}}</br>
+              </div>
+            </div> <!-- panel -->
+        </div> <!-- entry -->
+      </div> <!-- span12 -->
+    </div> <!-- row -->
+
+
+
+  <div id="navbar" class="collapse navbar-collapse">
+  <!-- <nav> -->
+      <div class="row">
+          <div class="pager">
+            <div id="veil2" ng-show="loading"></div>
+
+         <a target="_self" ng-href="{{download_link}}">
+            <button id="downloadResults-btn" ng-class="{ 'active' : downloadResults }" class="btn btn-default " type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt"></i> Download JSON</button>
+          </a>
+            </a>
+            <label class="checkbox-inline"><input type="checkbox" data-toggle="tooltip" title="Include full project queries in results" ng-model="full_download" value="">full</label>
+          </div>
+     <ul class="pager">
+            <div id="veil2" ng-show="loading"></div>
+       <li><button class="btn btn-default" type="button" ng-click="prevPage()"><i class="glyphicon glyphicon-arrow-left"></i> Previous</button></li>
+       <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next <i class="glyphicon glyphicon-arrow-right"></i></button></li>
+     </ul>
+   </div>
+<!--   </nav>-->
+ </div>
+
+</div>
+</div>

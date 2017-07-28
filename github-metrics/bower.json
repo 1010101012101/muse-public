@@ -1,0 +1,27 @@
+{
+  "name": "github-metrics",
+  "version": "0.0.0",
+  "authors": [
+    "Otto Barnes <barnesrobe@leidos.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "chartjs": "1.0.1-beta.4",
+    "jquery": "~2.1.1"
+  },
+  "resolutions": {
+    "chartjs": "1.0.1-beta.4"
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "project": {
+    "dynamic": "strict",
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "readme": {
+        "type": "string"
+      },
+      "install": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string",
+        "analyzer": "custom_lower",
+        "fields": {
+          "raw": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "full_name": {
+        "type": "string",
+        "analyzer": "custom_lower",
+        "fields": {
+          "raw": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "site": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "total_size": {
+        "type": "long"
+      },
+      "src_size": {
+        "type": "long"
+      },
+      "sloc": {
+        "type": "long"
+      },
+      "cloc": {
+        "type": "long"
+      },
+      "num_files": {
+        "type": "long"
+      },
+      "html_url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "created_at": {
+        "type": "date",
+        "format": "dateOptionalTime"
+      },
+      "crawled_date": {
+        "type": "date",
+        "format": "dateOptionalTime"
+      },
+      "language": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "languageMain": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "topic": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "corpus_release": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "buildStatus": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "quality_leidos": {
+        "type": "float"
+      },
+      "hasBytecode": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "hasObjectFiles": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "hasSource": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "hasBuildLog": {
+        "type": "boolean",
+        "index": "not_analyzed"
+      },
+      "hasBuildScript": {
+        "type": "boolean",
+        "index": "not_analyzed"
+      },
+      "hasLLVM": {
+        "type": "boolean",
+        "index": "not_analyzed"
+      },
+      "isAndroidApp": {
+        "type": "boolean",
+        "index": "not_analyzed"
+      },
+      "hasGradleW": {
+        "type": "boolean",
+        "index": "not_analyzed"
+      },
+      "hasGradleBuild": {
+        "type": "boolean",
+        "index": "not_analyzed"
+      }
+    }
+  },
+  "commit": {
+    "_parent": {
+      "type": "project"
+    },
+    "dynamic": "strict",
+    "properties": {
+      "id": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "parent_id": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "child_id": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "message": {
+        "type": "string"
+      }
+    }
+  },
+  "file": {
+    "_parent": {
+      "type": "project"
+    },
+    "dynamic": "strict",
+    "properties": {
+      "file_name": {
+        "type": "string",
+        "analyzer": "custom_lower",
+        "fields": {
+          "raw": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "full_path": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "file_extension": {
+        "type": "string",
+        "analyzer": "custom_lower",
+        "fields": {
+          "raw": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "comment": {
+        "type": "string"
+      },
+      "variable": {
+        "type": "nested",
+        "properties": {
+          "name": {
+            "type": "string",
+            "analyzer": "custom_lower",
+            "fields": {
+              "raw": {
+                "type": "string",
+                "index": "not_analyzed"
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "analyzer": "custom_lower",
+            "fields": {
+              "raw": {
+                "type": "string",
+                "index": "not_analyzed"
+              }
+            }
+          }
+        }
+      },
+      "function": {
+        "type": "nested",
+        "properties": {
+          "name": {
+            "type": "string",
+            "analyzer": "custom_lower",
+            "fields": {
+              "raw": {
+                "type": "string",
+                "index": "not_analyzed"
+              }
+            }
+          },
+          "return_type": {
+            "type": "string",
+            "analyzer": "custom_lower",
+            "fields": {
+              "raw": {
+                "type": "string",
+                "index": "not_analyzed"
+              }
+            }
+          },
+          "parameter_type": {
+            "type": "string",
+            "analyzer": "custom_lower",
+            "fields": {
+              "raw": {
+                "type": "string",
+                "index": "not_analyzed"
+              }
+            }
+          }
+        }
+      },
+      "class_inherited": {
+        "type": "string",
+        "analyzer": "custom_lower",
+        "fields": {
+          "raw": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      }
+    }
+  }
+}
+

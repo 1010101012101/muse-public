@@ -1,0 +1,35 @@
+repocrawler:
+  build: .
+  working_dir: /leit/github-crawler
+  command: bin/downloadFileCrawler.sh
+  # mount all the application code into the container
+  # if a new directory is added in public this list needs to be updated
+  # and the container rebuilt (fig build)
+  volumes:
+    - ".:/leit/github-crawler"
+    - "/data:data"
+#  links:
+#    - redisdb
+#    - es
+  environment: 
+    NODE_ENV: development
+    NODE_PATH: /leit/nodeapp
+# Either set these env vars to the port and host of the mongo and ES
+# server or use the containerized versions of these defined in the db
+# and es services below
+    DB_1_PORT_27017_TCP_ADDR: 38.100.20.211 
+    DB_1_PORT_27017_TCP_PORT: 27017
+    REDIS_1_PORT_6379_TCP_ADDR: 38.100.20.211
+    REDIS_1_PORT_6379_TCP_PORT: 6379  
+#redisdb:
+#  image: redis
+#  volumes:
+#   - "/home/roger/Projects/MUSE/redisdb:/data"
+#es:
+#  image: dockerfile/elasticsearch
+#  ports:
+#    - "9200:9200"
+#    - "9300:9300"
+#  volumes:
+#    - "/home/roger/Projects/MUSE/data/es:/data"
+#  command: /elasticsearch/bin/elasticsearch -Des.config=/data/elasticsearch.yml

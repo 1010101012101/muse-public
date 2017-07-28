@@ -1,0 +1,35 @@
+finder:
+  build: .
+  working_dir: /leit/github-finder
+  command: bin/github-finder --token c65563aedd99f1e0efe410516e199eb28536b0f4 --db "mongodb://38.100.20.211:27017/github" --collection "github_2014OCT27" --since 68182254 
+  # mount all the application code into the container
+  # if a new directory is added in public this list needs to be updated
+  # and the container rebuilt (fig build)
+  volumes:
+    - ".:/leit/github-finder"
+    - "/data:data"
+#  links:
+#    - redisdb
+#    - es
+  environment: 
+    NODE_ENV: development
+    NODE_PATH: /leit/nodeapp
+# Either set these env vars to the port and host of the mongo and ES
+# server or use the containerized versions of these defined in the db
+# and es services below
+    DB_1_PORT_27017_TCP_ADDR: 38.100.20.211 
+    DB_1_PORT_27017_TCP_PORT: 27017
+    REDIS_1_PORT_6379_TCP_ADDR: 38.100.20.211
+    REDIS_1_PORT_6379_TCP_PORT: 6379  
+#redisdb:
+#  image: redis
+#  volumes:
+#   - "/home/roger/Projects/MUSE/redisdb:/data"
+#es:
+#  image: dockerfile/elasticsearch
+#  ports:
+#    - "9200:9200"
+#    - "9300:9300"
+#  volumes:
+#    - "/home/roger/Projects/MUSE/data/es:/data"
+#  command: /elasticsearch/bin/elasticsearch -Des.config=/data/elasticsearch.yml

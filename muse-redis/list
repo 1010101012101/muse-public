@@ -1,0 +1,170 @@
+avahi-cups-reload stop/waiting
+avahi-daemon start/running, process 1577
+cgroup-lite start/running
+mountall-net stop/waiting
+mountnfs-bootclean.sh start/running
+passwd stop/waiting
+qemu-kvm start/running
+rc stop/waiting
+rsyslog start/running, process 1325
+startpar-bridge stop/waiting
+tty4 start/running, process 2672
+udev start/running, process 790
+upstart-udev-bridge start/running, process 780
+ureadahead-other stop/waiting
+whoopsie start/running, process 3068
+apport start/running
+console-setup stop/waiting
+gpu-manager stop/waiting
+hwclock-save stop/waiting
+idmapd-mounting stop/waiting
+irqbalance start/running, process 2922
+plymouth-log stop/waiting
+rpcbind-boot stop/waiting
+systemd-logind start/running, process 1534
+tty5 start/running, process 2676
+failsafe stop/waiting
+modemmanager start/running, process 1898
+mountall.sh start/running
+nova-compute start/running, process 2989
+rfkill-store stop/waiting
+statd start/running, process 1661
+atd start/running, process 2874
+dbus start/running, process 1474
+
+docker start/running, process 14881
+
+failsafe-x stop/waiting
+mounted-var stop/waiting
+plymouth-shutdown stop/waiting
+plymouth stop/waiting
+resolvconf start/running
+salt-minion start/running, process 2679
+ssh start/running, process 2815
+udev-fallback-graphics stop/waiting
+usb-modeswitch-upstart stop/waiting
+autofs stop/waiting
+checkroot.sh start/running
+cinder-volume start/running, process 2826
+control-alt-delete stop/waiting
+hwclock stop/waiting
+mounted-proc stop/waiting
+network-manager start/running, process 2204
+nova-cert start/running, process 2827
+alsa-store stop/waiting
+cinder-api start/running, process 2828
+cups-browsed start/running, process 2919
+setvtrgb stop/waiting
+shutdown stop/waiting
+statd-mounting stop/waiting
+alsa-restore stop/waiting
+cron start/running, process 2873
+lightdm start/running, process 3499
+mountall stop/waiting
+mounted-debugfs stop/waiting
+mountkernfs.sh start/running
+rpcbind start/running, process 1654
+console stop/waiting
+mounted-run stop/waiting
+acpid start/running, process 3052
+bluetooth start/running, process 1540
+checkfs.sh start/running
+checkroot-bootclean.sh start/running
+iscsi-network-interface stop/waiting
+keystone start/running, process 2688
+kmod stop/waiting
+libvirt-bin start/running, process 2975
+mountnfs.sh start/running
+nova-api start/running, process 2856
+plymouth-stop stop/waiting
+rcS stop/waiting
+tgt start/running, process 2923
+ufw start/running
+wait-for-state stop/waiting
+bootmisc.sh start/running
+flush-early-job-log stop/waiting
+friendly-recovery stop/waiting
+gssd-mounting stop/waiting
+nova-consoleauth start/running, process 2857
+rc-sysinit stop/waiting
+cups start/running, process 6762
+nova-conductor start/running, process 2858
+pulseaudio stop/waiting
+upstart-socket-bridge start/running, process 1652
+anacron stop/waiting
+cryptdisks start/running
+glance-registry start/running, process 2695
+mountdevsubfs.sh start/running
+tty2 start/running, process 2696
+udevtrigger stop/waiting
+upstart-file-bridge start/running, process 1345
+container-detect stop/waiting
+mounted-dev stop/waiting
+mtab.sh start/running
+tty3 start/running, process 2697
+udev-finish stop/waiting
+alsa-state stop/waiting
+cryptdisks-udev stop/waiting
+hostname stop/waiting
+mountall-reboot stop/waiting
+mysql start/running, process 3094
+nova-network start/running, process 2859
+nova-scheduler start/running, process 2863
+docker.io stop/waiting
+gssd stop/waiting
+mountall-shell stop/waiting
+mounted-tmp stop/waiting
+network-interface (vnet4) start/running
+network-interface (br100) start/running
+network-interface (vnet2) start/running
+network-interface (em1) start/running
+network-interface (vnet3) start/running
+network-interface (docker0) start/running
+network-interface (virbr0) start/running
+network-interface (vnet0) start/running
+network-interface (em3) start/running
+network-interface (vnet1) start/running
+network-interface (em2) start/running
+network-interface (vethd9ca5fb) start/running
+network-interface (em4) start/running
+network-interface (lo) start/running
+network-interface (vethe587d4c) start/running
+network-interface (vethd05928d) start/running
+plymouth-ready stop/waiting
+plymouth-splash stop/waiting
+plymouth-upstart-bridge stop/waiting
+portmap-wait stop/waiting
+tty1 start/running, process 8717
+udevmonitor stop/waiting
+cinder-scheduler start/running, process 2867
+dmesg stop/waiting
+glance-api start/running, process 2704
+mountall-bootclean.sh start/running
+network-interface-security (network-interface/br100) start/running
+network-interface-security (network-interface/vnet3) start/running
+network-interface-security (network-interface/em4) start/running
+network-interface-security (network-interface/vnet2) start/running
+network-interface-security (network-manager) start/running
+network-interface-security (network-interface/docker0) start/running
+network-interface-security (network-interface/vnet1) start/running
+network-interface-security (network-interface/vnet0) start/running
+network-interface-security (network-interface/em1) start/running
+network-interface-security (network-interface/em2) start/running
+network-interface-security (network-interface/vnet4) start/running
+network-interface-security (network-interface/em3) start/running
+network-interface-security (network-interface/vethe587d4c) start/running
+network-interface-security (network-interface/lo) start/running
+network-interface-security (network-interface/virbr0) start/running
+network-interface-security (network-interface/vethd05928d) start/running
+network-interface-security (networking) start/running
+network-interface-security (network-interface/vethd9ca5fb) start/running
+networking start/running
+nova-novncproxy start/running, process 2869
+procps stop/waiting
+rfkill-restore stop/waiting
+salt-master start/running, process 2706
+tty6 start/running, process 2707
+console-font stop/waiting
+idmapd start/running, process 1249
+network-interface-container stop/waiting
+ureadahead stop/waiting

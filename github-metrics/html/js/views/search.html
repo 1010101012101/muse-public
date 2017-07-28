@@ -1,0 +1,63 @@
+<!-- Copyright (c) 2014-2017 Leidos. -->
+<!-- License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause -->
+<!-- Developed under contract #FA8750-14-C-0241 -->
+<div>
+    <!--
+    <input type="text" ng-model="term">
+    <button ng-click="findValue(term)">Search</button><br> -->
+    <div id="navbar" class="collapse navbar-collapse">
+      <div class="row">
+        <div class="col-sm-3 col-md-3 pull-left">
+			 <form class="navbar-form" role="search" ng-Submit="findValue(term)" >
+			  <div class="input-group">
+            <input type="text" ng-model="term" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button id="search-btn" class="btn btn-default" type="button" ng-Click="findValue(term)"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+			  </div>
+			 </form>
+        </div>
+        <div class="col-sm-9 col-md-9">
+            <ul class="pager">
+                <li><button ng-click="prevPage()">Previous</button></li>
+                <li><button ng-click="nextPage()">Next</button></li>
+            </ul>
+        </div>
+      </div> <!-- row -->
+      <div class="row">
+        <div class="col-sm-3 col-md-3 pull-left">
+          <label class="checkbox-inline"><input ng-model="javaFilter" type="checkbox" value="">Java</label>
+          <label class="checkbox-inline"><input ng-model="cFilter" type="checkbox" value="">C/C++</label>
+          <!-- Objective-C  -->
+        </div>
+      </div> <!-- row -->
+    </div>
+
+    <hr>
+
+    <div ng-repeat="entry in entries">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+        <div class="panel panel-default">
+           <div class="panel-heading">
+              <a href="{{entry._source.info.html_url}}"><h2>{{entry._source.name}}</h2></a>
+           </div>
+           <div class="panel-body">
+		        <b>Description:</b> {{entry._source.info.description}} </br>
+		        <b>Language:</b> {{entry._source.info.language}} </br>
+           </div>
+        </div> <!-- panel -->
+        </div>
+        <div class="col-md-1"></div>
+       </div> <!-- row -->
+    </div>
+	 <div>
+       <nav>
+         <ul class="pager">
+           <li><button ng-click="prevPage()">Previous</button></li>
+           <li><button ng-click="nextPage()">Next</button></li>
+         </ul>
+       </nav>
+	 </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "github-metrics",
+  "version": "1.0.0",
+  "description": "Gathering and Displaying Metrics on the Corpus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^0.9.0",
+    "chalk": "^0.5.1",
+    "elasticsearch": "^3.0.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-coffee": "^0.12.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "mongo": "^0.1.0",
+    "mongodb": "^1.4.23",
+    "q": "^1.1.2",
+    "yargs": "^1.3.3"
+  }
+}

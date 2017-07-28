@@ -1,0 +1,185 @@
+<!-- Copyright (c) 2014-2017 Leidos. -->
+<!-- License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause -->
+<!-- Developed under contract #FA8750-14-C-0241 -->
+<div id="wrapper">
+<div ng-controller="SearchController">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+
+        <div class="row">
+          <div class="col-sm-7 col-md-7 pull-left">
+             <div class="sidebar-brand"><h2>Search Corpus</h2></div>
+	  </div><!--
+          <div class="col-sm-1 col-md-1 ">
+             <div class="pager">
+               <button id="help-btn" class="btn btn-info" type="button" data-toggle="tooltip" title="View Query Text..." ng-Click="alertSearch()"><i class="glyphicon glyphicon-info-sign"></i></button>
+             </div>
+          </div>-->
+
+          <div class="col-sm-4 col-md-4 pull-left" >
+             <div class="pager">
+             <div class="dropdown"> <!-- dropdown-append-to-body">-->
+   		   <button type="button" class="btn btn-primary dropdown-toggle" id="menu1" data-toggle="dropdown"><i class="glyphicon glyphicon-star"></i> Saved Searches
+      		       <span class="caret"></span>
+   		   </button>
+   		   <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+		   <li class="dropdown-header"><b>Leidos Benchmarks</b></li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedLCS2()"><i class="glyphicon glyphicon-search"></i> Longest Common</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedJSON()"><i class="glyphicon glyphicon-search"></i> Duplicate JSON</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedBresen()"><i class="glyphicon glyphicon-search"></i> Bresenham</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedMatrix()"><i class="glyphicon glyphicon-search"></i> Matrix Multiplication</button>
+      		   </li>
+      		   <li class="disabled" role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedGraph()"><i class="glyphicon glyphicon-search"></i> Graph Alogrithms</button>
+      		   </li>
+		   <hr>
+<!--		   <li class="divider" role="presentation"><hr></li>-->
+		   <li class="dropdown-header"><b>Performer Benchmarks</b></li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedDraper2()"><i class="glyphicon glyphicon-search"></i> off-by-one</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedAndroid2()"><i class="glyphicon glyphicon-search"></i> android</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedAES()"><i class="glyphicon glyphicon-search"></i> AES</button>
+      		   </li>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedTree()"><i class="glyphicon glyphicon-search"></i> Tree Manipulation</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedGUI()"><i class="glyphicon glyphicon-search"></i> Java GUIs</button>
+      		   </li><br>
+      		   <li role="presentation">
+                        <button type="button" class="btn btn-link" ng-Click="loadSavedImageSyn()"><i class="glyphicon glyphicon-search"></i> Image Synthesis</button>
+      		   </li>
+   		   </ul>
+	     </div>
+	  </div>  </div>
+        </div>
+
+       <div class="row">
+       <div class="col-sm-5 col-md-5 pull-left" >
+         <h3>Project Filters</h3></div>
+       <div class="col-sm-3 col-md-3 pull-right">
+         <div class="pager">
+               <button id="help-btn" class="btn btn-default" type="button" data-toggle="tooltip" title="GUI Query..." ng-Click="searchPage()"><i class="glyphicon glyphicon-tasks"></i></button>
+         </div>
+       </div></div>
+      <div class="span9">
+        <div class="form-group">
+  		<label for="comment">Text Search:</label>
+  		<textarea ng-model="queryText" class="form-control" rows="12" id="comment"></textarea>
+	</div></div>
+        <div class="pager">
+        <button id="search-btn" class="btn btnSearch" type="button" ng-Click="findTextQueryAdv()"><i class="glyphicon glyphicon-search"> Search</i></button>
+        </div>
+      </ul>
+    </div>
+
+     <!--     <div><span class="badge">Total Results: {{total_results}}</span></div> -->
+    <div id="navbar" class="collapse navbar-collapse">
+      <div class="row">
+        <div class="col-sm-0 col-md-0 pull-left">
+          <h2>Results:</h2>
+        </div>
+        <div id="veil" ng-show="loading"></div>
+        <div id="feedLoading" ng-show="loading">Loading...</div>
+        <div class="col-sm-2 col-md-2 pull-left">
+          <div class="pager">
+            <a target="_self" ng-href="{{download_link}}">
+            <div id="veil2" ng-show="loading"></div>
+            <button id="downloadResults-btn" ng-class="{ 'active' : downloadResults }" class="btn btn-default" type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt"></i> Download JSON</button>
+          </a>
+<!--            <button id="downloadResults-btn" ng-click="downloadResults()" class="btn btn-primary start" type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt"></i> Download JSON</button>-->
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <ul class="pager">
+            <div id="veil2" ng-show="loading"></div>
+                <li><button class="btn btn-default" type="button" ng-click="prevPage()">Previous</button></li>
+                <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next</button></li>
+            </ul>
+        </div>
+      </div> <!-- row -->
+    </div>
+
+    <div><span class="badge span9">Total Results: {{total_results}}</span> <span class="badge span9">Total Size: {{size_str}}</span></div>
+    <hr>
+    <!--
+    <input type="text" ng-model="term">
+    <button ng-click="findValue(term)">Search</button><br> -->
+<!--    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="row-fluid">
+          <div class="span12">
+            <ul class="pager">
+                <li><button class="btn btn-default" type="button" ng-click="prevPage()">Previous</button></li>
+                <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+ 	  <div class="badge span3">Total Projects: {{total_results}}</div>
+
+          <div class="btn-group span12">
+           <a target="_self" ng-href="{{download_link}}">
+             <button id="downloadResults-btn" ng-class="{ 'active' : downloadResults }" class="btn btn-default" type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt">Download JSON</i></button>
+
+           </a><div class="spinner" ng-show="loading"></div>
+          </div>
+
+      </div>
+      <br>-->
+      <div class="row-fluid">
+        <div class="span12 main">
+          <div ng-repeat="entry in entries">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <a href="{{entry._source.html_url}}"><h2>{{entry._source.full_name}}</h2></a>
+              </div>
+              <div class="panel-body">
+                <b>Description:</b> {{entry._source.description}} </br>
+                <b>Site:</b> {{entry._source.site}} </br>
+                <b>Languages:</b> {{entry._source.language}} </br>
+                <b>Created On:</b> {{entry._source.created_at}} </br>
+                <b>Size:</b> {{entry._source.total_size}}  (bytes)</br>
+                <b>Path:</b> {{entry._source.path}}</br>
+              </div>
+            </div> <!-- panel -->
+        </div> <!-- entry -->
+      </div> <!-- span12 -->
+    </div> <!-- row -->
+
+
+
+  <div id="navbar" class="collapse navbar-collapse">
+  <!-- <nav> -->
+      <div class="row">
+          <div class="pager">
+            <div id="veil2" ng-show="loading"></div>
+
+         <a target="_self" ng-href="{{download_link}}">
+            <button id="downloadResults-btn" ng-class="{ 'active' : downloadResults }" class="btn btn-default " type="button" ng-Click="downloadResults()"><i class="glyphicon glyphicon-download-alt"></i> Download JSON</button>
+          </a>
+            </a>
+          </div>
+     <ul class="pager">
+            <div id="veil2" ng-show="loading"></div>
+       <li><button class="btn btn-default" type="button" ng-click="prevPage()">Previous</button></li>
+       <li><button class="btn btn-default" type="button" ng-click="nextPage()">Next</button></li>
+     </ul>
+   </div>
+<!--   </nav>-->
+ </div>
+</div>
+</div>

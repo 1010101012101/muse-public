@@ -1,0 +1,167 @@
+<!-- Copyright (c) 2014-2017 Leidos. -->
+<!-- License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause -->
+<!-- Developed under contract #FA8750-14-C-0241 -->
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>
+                <strong>P</strong>rojects
+            </h2>
+            <canvas id="size" width="350" height="350"></canvas>
+            <p>The number of projects added to the corpus over time (C=blue, C++=orange Java=red)</p>
+        </div>
+        <div class="col-xs-6">
+            <h2>
+                <strong>T</strong>otal Bytes of Code
+            </h2>
+            <canvas id="lines" width="350" height="350"></canvas>
+            <p>The total Gigabytes of code (C,C++,Java) present in the corpus. [calculated using latest src only]</p>
+        </div>
+        <div class="col-xs-6">
+            <h2>
+                <strong>C</strong>omposition
+            </h2>
+            <canvas id="composition" width="350" height="350"></canvas>
+            <p>Composition of corpus by bytes of code per language (C=blue, C++=orange, Java=red) [in percent]</p>
+        </div>
+        <div class="col-xs-6">
+            <h2>
+                <strong>H</strong>istogram
+            </h2>
+            <canvas id="hist" width="350" height="350"></canvas>
+            <p>Number of projects per bytes bin (non-uniform) (C=blue, C++=orange, Java=red)</p>
+        </div>
+    </div>
+    </div>
+    <script>
+           Chart.defaults.global = {
+                // Boolean - Whether to animate the chart
+                animation: false,
+
+                // Number - Number of animation steps
+                animationSteps: 60,
+
+                // String - Animation easing effect
+                animationEasing: "easeOutQuart",
+
+                // Boolean - If we should show the scale at all
+                showScale: true,
+
+                // Boolean - If we want to override with a hard coded scale
+                scaleOverride: false,
+
+                // ** Required if scaleOverride is true **
+                // Number - The number of steps in a hard coded scale
+                scaleSteps: null,
+                // Number - The value jump in the hard coded scale
+                scaleStepWidth: null,
+                // Number - The scale starting value
+                scaleStartValue: null,
+
+                // String - Colour of the scale line
+                scaleLineColor: "rgba(0,0,0,.1)",
+
+                // Number - Pixel width of the scale line
+                scaleLineWidth: 1,
+
+                // Boolean - Whether to show labels on the scale
+                scaleShowLabels: true,
+
+                // Interpolated JS string - can access value
+                scaleLabel: "<%=value%>",
+
+                // Boolean - Whether the scale should stick to integers, not floats even if drawing space is there
+                scaleIntegersOnly: true,
+
+                // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+                scaleBeginAtZero: false,
+
+                // String - Scale label font declaration for the scale label
+                scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+                // Number - Scale label font size in pixels
+                scaleFontSize: 12,
+
+                // String - Scale label font weight style
+                scaleFontStyle: "normal",
+
+                // String - Scale label font colour
+                scaleFontColor: "#666",
+
+                // Boolean - whether or not the chart should be responsive and resize when the browser does.
+                responsive: false,
+
+                // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+                maintainAspectRatio: true,
+
+                // Boolean - Determines whether to draw tooltips on the canvas or not
+                showTooltips: true,
+
+                // Array - Array of string names to attach tooltip events
+                tooltipEvents: ["mousemove", "touchstart", "touchmove"],
+
+                // String - Tooltip background colour
+                tooltipFillColor: "rgba(0,0,0,0.8)",
+
+                // String - Tooltip label font declaration for the scale label
+                tooltipFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+                // Number - Tooltip label font size in pixels
+                tooltipFontSize: 14,
+
+                // String - Tooltip font weight style
+                tooltipFontStyle: "normal",
+
+                // String - Tooltip label font colour
+                tooltipFontColor: "#fff",
+
+                // String - Tooltip title font declaration for the scale label
+                tooltipTitleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+                // Number - Tooltip title font size in pixels
+                tooltipTitleFontSize: 14,
+
+                // String - Tooltip title font weight style
+                tooltipTitleFontStyle: "bold",
+
+                // String - Tooltip title font colour
+                tooltipTitleFontColor: "#fff",
+
+                // Number - pixel width of padding around tooltip text
+                tooltipYPadding: 6,
+
+                // Number - pixel width of padding around tooltip text
+                tooltipXPadding: 6,
+
+                // Number - Size of the caret on the tooltip
+                tooltipCaretSize: 8,
+
+                // Number - Pixel radius of the tooltip border
+                tooltipCornerRadius: 6,
+
+                // Number - Pixel offset from point x to tooltip edge
+                tooltipXOffset: 10,
+
+                // String - Template string for single tooltips
+                tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
+
+                // String - Template string for single tooltips
+                multiTooltipTemplate: "<%= value %>",
+
+                // Function - Will fire on animation progression.
+                onAnimationProgress: function(){},
+
+                // Function - Will fire on animation completion.
+                onAnimationComplete: function(){}
+            }
+
+            var size = document.getElementById('size').getContext('2d');
+            new Chart(size).Line(plottingData.projectData);
+            var lines = document.getElementById("lines").getContext("2d");
+            new Chart(lines).Line(plottingData.totalData);
+            var composition = document.getElementById("composition").getContext("2d");
+            new Chart(composition).Doughnut(plottingData.linePieData, {});
+            var hist = document.getElementById("hist").getContext("2d");
+            new Chart(hist).Bar(plottingData.histData, {});
+
+    </script>

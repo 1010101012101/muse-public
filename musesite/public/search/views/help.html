@@ -1,0 +1,431 @@
+<!-- Copyright (c) 2014-2017 Leidos. -->
+<!-- License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause -->
+<!-- Developed under contract #FA8750-14-C-0241 -->
+<div class="container">
+</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h1>
+			<span class="glyphicon glyphicon-info-sign"></span>
+				Search Documentation
+			</h1>
+
+			<p>
+The search interface allows you to mine our corpus for projects using complex search queries.  We have provided a set of pre-constructed saved searches to help get you started or you can manually construct your search query using the provided interactive query builder located in the left sidebar navigation panel.  The search queries consist of 3 distinct types of filters; project filters, commit filters, and file filters.
+			</p>
+
+
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+<h2>
+				Download Results
+			  <span class="glyphicon glyphicon-download-alt"></span>
+			</h2>
+	 		</div>
+                        <div class="panel-body">
+			<p>
+After doing a search, use the <span class="glyphicon glyphicon-download-alt"></span> <kbd>Download JSON</kbd> button to download search results.This will download a JSON file containing the relative paths of the projects that match your search query. These project paths can be used to copy projects off of the XtreemFS mount.
+			</p>
+                        </div></div>
+
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                         <h2> Search Syntax
+
+			  <span class="glyphicon glyphicon-search"></span>
+</h2>
+			<p></div>
+                        <div class="panel-body">
+
+		        <li> <b>Case Sensitivity</b> </li>
+			By default all searches are case insensitive.  To perform case sensitive searches surround your search value with double quotes. Wildcards are supported.<p><pre>     ie) "HeapSort" or "someFunctionName"</pre> </p>
+			</p>
+			<p>
+		        <li> <b>Wildcards</b> </li>
+All string search fields support wildcards. The supported wildcards are * and ? --where * matches any character sequence (including the empty one), and ?, matches any single character. Note this query can be slow, as it needs to iterate over many terms. In order to prevent extremely slow wildcard queries, a wildcard term should not start with one of the wildcards * or ?. <p><pre>     ie) android* or off?by?one</pre></p>
+			</p>
+		        <li> <b>Phrase Matching</b> </li>
+                        The ability to search for a phrase of words is supported however this is only supported for a few search fields.  See tables below.  To perform phrase matching searches surround your word phrase in double qoutes. Wildcards not supported in phrase matching. <p><pre>     ie) "off by one"</pre></p>
+			</p>
+</div></div>
+
+
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+<h2>
+				Project Filters
+			<span class="glyphicon glyphicon-filter"></span>
+			</h2>
+	 		</div>
+                        <div class="panel-body">
+			<p>
+Allows you to filter on top level project criteria.
+			</p>
+	<table class="table table-condensed table-bordered">
+				<thead>
+					<tr class="active">
+						<th>
+							#
+						</th>
+						<th>
+							Field
+						</th>
+						<th>
+							Type
+						</th>
+						<th>
+							Supported syntax
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="warning">
+						<td>
+							1
+						</td>
+						<td>
+							name
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							case sensitive, wildcards
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							1
+						</td>
+						<td>
+							description
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							wildcards, phrase match
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							2
+						</td>
+						<td>
+							language
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							multi-select
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							3
+						</td>
+						<td>
+							total_size
+						</td>
+						<td>
+							int
+						</td>
+						<td>
+							&gt;, &lt;, =, &gt;=, &lt;=
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							4
+						</td>
+						<td>
+							isAndroidApp
+						</td>
+						<td>
+							boolean
+						</td>
+						<td>
+							true, false
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+						5
+						</td>
+						<td>
+							readme
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							wildcards, phrase match
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							6
+						</td>
+						<td>
+							install
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							wildcards, phrase match
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+						7
+						</td>
+						<td>
+							site
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							multi-select
+						</td>
+					</tr>
+				</tbody>
+			</table>
+</div></div>
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+			<h2>
+				Commit Filters
+			<span class="glyphicon glyphicon-filter"></span>
+			</h2>
+</div>
+                        <div class="panel-body">
+			<p>
+				Allows you to search all commit logs from a given project. (only supported for github projects)
+			</p>
+			<table class="table table-condensed table-bordered">
+				<thead>
+					<tr class="active">
+						<th>
+							#
+						</th>
+						<th>
+							Field
+						</th>
+						<th>
+							Type
+						</th>
+						<th>
+							Supported syntax
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="warning">
+						<td>
+							1
+						</td>
+						<td>
+							id
+						</td>
+						<td>
+							long
+						</td>
+						<td>
+							&gt;, &lt;, =, &gt;=, &lt;=
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							1
+						</td>
+						<td>
+							message
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							wildcards, phrase match
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							2
+						</td>
+						<td>
+							parent_id
+						</td>
+						<td>
+							long
+						</td>
+						<td>
+							&gt;, &lt;, =, &gt;=, &lt;=
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							3
+						</td>
+						<td>
+							child_id
+						</td>
+						<td>
+							long
+						</td>
+						<td>
+							&gt;, &lt;, =, &gt;=, &lt;=
+						</td>
+					</tr>
+				</tbody></table>
+</div></div>
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+			<h2>
+				File Filters
+			<span class="glyphicon glyphicon-filter"></span>
+			</h2>
+</div>
+                        <div class="panel-body">
+			<p>
+				Allows you to search all source files within a project by selected criteria.
+			</p>
+			<table class="table table-condensed table-bordered">
+				<thead>
+					<tr class="active">
+						<th>
+							#
+						</th>
+						<th>
+							Field
+						</th>
+						<th>
+							Type
+						</th>
+						<th>
+							Supported syntax
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="warning">
+						<td>
+							1
+						</td>
+						<td>
+						 	comment
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							wildcards, phrase matching
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							1
+						</td>
+						<td>
+							file_extension
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							case sensitive, wildcards
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							2
+						</td>
+						<td>
+							file_name
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							case sensitive, wildcards
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							3
+						</td>
+						<td>
+							function.name
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							case sensitive, wildcards
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							4
+						</td>
+						<td>
+							function.return_type
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							case sensitive, wildcards
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							5
+						</td>
+						<td>
+							function.parameter_type
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							case sensitive, wildcards
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							6
+						</td>
+						<td>
+							variable.name
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							case sensitive, wildcards
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							7
+						</td>
+						<td>
+							variable.type
+						</td>
+						<td>
+							string
+						</td>
+						<td>
+							case sensitive, wildcards
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div></div>
+
+              </div>
+	</div>
+</div>

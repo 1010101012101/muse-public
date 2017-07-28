@@ -1,0 +1,60 @@
+nodeapp:
+  build: .
+  working_dir: /leit/nodeapp
+  command: node server.js
+  # mount all the application code into the container
+  # if a new directory is added in public this list needs to be updated
+  # and the container rebuilt (fig build)
+  volumes:
+    - "app:/leit/nodeapp/app"
+    - "config:/leit/nodeapp/config"
+    - "public/core:/leit/nodeapp/public/core"
+    - "public/css:/leit/nodeapp/public/css"
+    - "public/data:/leit/nodeapp/public/data"
+    - "public/img:/leit/nodeapp/public/img"
+    - "public/metrics:/leit/nodeapp/public/metrics"
+    - "public/search:/leit/nodeapp/public/search"
+    - "public/users:/leit/nodeapp/public/users"
+  # expose port 3000 on the main host
+  ports:
+    - "3000:3000"
+#  links:
+#    - db
+#    - es
+  environment: 
+    NODE_ENV: development
+    NODE_PATH: /leit/nodeapp
+# Either set these env vars to the port and host of the mongo and ES
+# server or use the containerized versions of these defined in the db
+# and es services below.  If using the env vars then comment out the
+# links to db and es in the nodeapp service
+    DB_1_PORT_27017_TCP_ADDR: 38.100.20.211 
+    DB_1_PORT_27017_TCP_PORT: 27017
+    ES_1_PORT_9200_TCP_ADDR: 38.100.20.211
+    ES_1_PORT_9200_TCP_PORT: 9200
+# Simple httpd service if we need to proxy the node application
+# the Dockerfile for this service should push a modified httpd.conf
+# to setup the proxy
+#httpd:
+#  build: httpd
+#  volumes:
+#    - "httpd/html:/usr/local/apache2/htdocs"
+#  links:
+#    - web
+#  ports:
+#    - "80:80"
+#db:
+#  image: mongo
+#  ports: 
+#    - "27017:27017"
+#  volumes:
+#    - "/home/roger/Projects/MUSE/data/mongodb:/data/db"
+#es:
+#  image: dockerfile/elasticsearch
+#  ports:
+#    - "9200:9200"
+#    - "9300:9300"
+#  volumes:
+#    - "/home/roger/Projects/MUSE/data/es:/data"
+#  command: /elasticsearch/bin/elasticsearch -Des.config=/data/elasticsearch.yml
+  

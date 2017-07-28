@@ -1,0 +1,9 @@
+all:
+
+	grunt
+
+install:
+
+	sudo cp ./bin/makepage.sh /etc/cron.daily/github-metrics
+
+.PHONY: all, install

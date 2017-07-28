@@ -1,0 +1,7 @@
+Determine how many bytes of each programming language the projects in the supplied path contains.
+
+Currently only checking for languages: C, C++, Java, Javascript, PHP, Ruby, Python, C#
+
+Outputs:  languages.json 
+
+output is placed in the repo folder defined in the index.json

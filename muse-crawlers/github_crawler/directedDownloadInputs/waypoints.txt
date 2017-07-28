@@ -1,0 +1,9 @@
+ClubCapra-Deprecated/Viki
+FMSC-Measurements/TwoTrails-Android
+grossadamm/victoria
+hardikp888/my-daily-quest
+hifly81/bikedump
+lemairec/ship_in_lab
+mrpossoms/AVC2016
+philipheimboeck/gps-hawk
+sa-tsuklog/FreeRTOSTemplate

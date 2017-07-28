@@ -1,0 +1,4 @@
+thebuzzmedia/imgscalr
+lessthanoptimal/BoofCV
+jMonkeyEngine/jmonkeyengine
+aas-integration/dyn4j

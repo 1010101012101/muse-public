@@ -1,0 +1,382 @@
+var plottingData = {
+    "linesData": {
+        "labels": [
+            "2014-11-02",
+            "2014-12-01",
+            "2015-01-01",
+            "2015-02-01",
+            "2015-03-01",
+            "2015-04-01",
+            "2015-05-01",
+            "2015-06-10"
+        ],
+        "datasets": [
+            {
+                "fillColor": "rgba(172,194,132,0.1)",
+                "strokeColor": "#F7464A",
+                "pointHighlightFill": "#F7464A",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "Java",
+                "data": [
+                    0,
+                    3,
+                    7,
+                    13,
+                    16,
+                    63,
+                    71,
+                    97
+                ]
+            },
+            {
+                "fillColor": "rgba(255,194,1,0.1)",
+                "strokeColor": "#46BFBD",
+                "pointHighlightFill": "#46BFBD",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "C",
+                "data": [
+                    0,
+                    20,
+                    40,
+                    80,
+                    94,
+                    94,
+                    94,
+                    168
+                ]
+            },
+            {
+                "fillColor": "rgba(255,194,1,0.1)",
+                "strokeColor": "#FDB45C",
+                "pointHighlightFill": "#FDB45C",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "C++",
+                "data": [
+                    0,
+                    5,
+                    9,
+                    19,
+                    22,
+                    22,
+                    22,
+                    39
+                ]
+            },
+            {
+                "fillColor": "#48A497",
+                "strokeColor": "#48A4D1",
+                "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1009144,
+                    698318,
+                    572420,
+                    741570
+                ]
+            },
+            {
+                "fillColor": "#48A497",
+                "strokeColor": "#48A4D1",
+                "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3686877,
+                    3686877,
+                    3638380,
+                    4105702
+                ]
+            },
+            {
+                "fillColor": "#48A497",
+                "strokeColor": "#48A4D1",
+                "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1549434,
+                    1549434,
+                    1524553,
+                    1349020
+                ]
+            }
+        ]
+    },
+    "projectData": {
+        "labels": [
+            "2014-11-02",
+            "2014-12-01",
+            "2015-01-01",
+            "2015-02-01",
+            "2015-03-01",
+            "2015-04-01",
+            "2015-05-01",
+            "2015-06-10"
+        ],
+        "datasets": [
+            {
+                "fillColor": "rgba(172,194,132,0.4)",
+                "strokeColor": "#ACC26D",
+                "pointHighlightFill": "#ACC26D",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "Total",
+                "data": [
+                    0,
+                    9836,
+                    24904,
+                    36773,
+                    42434,
+                    97857,
+                    132832,
+                    175701
+                ]
+            },
+            {
+                "fillColor": "rgba(172,194,132,0.1)",
+                "strokeColor": "#46BFBD",
+                "pointHighlightFill": "#46BFBD",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "C",
+                "data": [
+                    0,
+                    5028,
+                    11551,
+                    19972,
+                    25447,
+                    25447,
+                    25806,
+                    40984
+                ]
+            },
+            {
+                "fillColor": "rgba(172,194,132,0.1)",
+                "strokeColor": "#F7464A",
+                "pointHighlightFill": "#F7464A",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "Java",
+                "data": [
+                    0,
+                    2156,
+                    7452,
+                    15322,
+                    15582,
+                    71005,
+                    105914,
+                    130250
+                ]
+            },
+            {
+                "fillColor": "rgba(172,194,132,0.1)",
+                "strokeColor": "#FDB45C",
+                "pointHighlightFill": "#FDB45C",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "C++",
+                "data": [
+                    0,
+                    1532,
+                    6212,
+                    12065,
+                    14140,
+                    14140,
+                    14418,
+                    28783
+                ]
+            }
+        ]
+    },
+    "totalData": {
+        "labels": [
+            "2014-11-02",
+            "2014-12-01",
+            "2015-01-01",
+            "2015-02-01",
+            "2015-03-01",
+            "2015-04-01",
+            "2015-05-01",
+            "2015-06-10"
+        ],
+        "datasets": [
+            {
+                "label": "Total",
+                "fillColor": "rgba(255,194,1,0.4)",
+                "strokeColor": "#ACC26D",
+                "pointHighlightFill": "#ACC26D",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "data": [
+                    0,
+                    28,
+                    56,
+                    112,
+                    131,
+                    179,
+                    187,
+                    316
+                ]
+            },
+            {
+                "fillColor": "rgba(255,194,1,0.1)",
+                "strokeColor": "#46BFBD",
+                "pointHighlightFill": "#46BFBD",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "C",
+                "data": [
+                    0,
+                    20,
+                    40,
+                    80,
+                    94,
+                    94,
+                    94,
+                    168
+                ]
+            },
+            {
+                "fillColor": "rgba(172,194,132,0.1)",
+                "strokeColor": "#F7464A",
+                "pointHighlightFill": "#F7464A",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "Java",
+                "data": [
+                    0,
+                    3,
+                    7,
+                    13,
+                    16,
+                    63,
+                    71,
+                    97
+                ]
+            },
+            {
+                "fillColor": "rgba(255,194,1,0.1)",
+                "strokeColor": "#FDB45C",
+                "pointHighlightFill": "#FDB45C",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "C++",
+                "data": [
+                    0,
+                    5,
+                    9,
+                    19,
+                    22,
+                    22,
+                    22,
+                    39
+                ]
+            },
+            {
+                "fillColor": "rgba(255,194,1,0.1)",
+                "strokeColor": "#FFFF33",
+                "pointHighlightFill": "#FDB45C",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "Python",
+                "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    5
+                ]
+            },
+            {
+                "fillColor": "rgba(255,194,1,0.1)",
+                "strokeColor": "#FFDAB9",
+                "pointHighlightFill": "#FDB45C",
+                "pointHighlightStroke": "rgba(220,220,220,1)",
+                "label": "JavaScript",
+                "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    7
+                ]
+            }
+        ]
+    },
+    "linePieData": [
+        {
+            "color": "#F7464A",
+            "highlight": "#FF5A5E",
+            "label": "Java",
+            "value": 31
+        },
+        {
+            "color": "#46BFBD",
+            "highlight": "#5AD3D1",
+            "label": "C",
+            "value": 53
+        },
+        {
+            "color": "#FDB45C",
+            "highlight": "#FFC870",
+            "label": "C++",
+            "value": 12
+        },
+        {
+            "color": "#FF00FF",
+            "highlight": "#FF00FF",
+            "label": "Other",
+            "value": 4
+        }
+    ],
+    "histData": {
+        "labels": [
+            "0-1k",
+            "1k-10k",
+            "10k-100k",
+            "> 100k"
+        ],
+        "datasets": [
+            {
+                "label": "C++",
+                "fillColor": "rgba(220,220,220,0.2)",
+                "strokeColor": "#FDB45C",
+                "pointHighlightFill": "#FDB45C",
+                "pointHighlightStroke": "#FDB45C",
+                "data": [
+                    1335,
+                    5329,
+                    10288,
+                    11831
+                ]
+            },
+            {
+                "label": "C",
+                "fillColor": "rgba(151,187,205,0.2)",
+                "strokeColor": "#46BFBD",
+                "pointHighlightFill": "#46BFBD",
+                "pointHighlightStroke": "#46BFBD",
+                "data": [
+                    2203,
+                    7622,
+                    12858,
+                    18301
+                ]
+            },
+            {
+                "label": "Java",
+                "fillColor": "rgba(151,0,0,0.2)",
+                "strokeColor": "#F7464A",
+                "pointHighlightFill": "#F7464A",
+                "pointHighlightStroke": "#F7464A",
+                "data": [
+                    11005,
+                    15028,
+                    48244,
+                    55973
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,4 @@
+To run the comment_extractor; run command below with desired path:
+
+sudo find <corpus-path> -maxdepth 9 -mindepth 9 -exec sh -c "(cd {}; /home/muse/extractors/comment_extractor/excomment2.sh )" \;
+

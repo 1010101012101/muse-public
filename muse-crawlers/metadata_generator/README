@@ -1,0 +1,1 @@
+The metadata_generator is used by any "non github" repository crawler such as sourceforge or java2s to create the necessary metadata json files needed for indexing into ElasticSearch.
